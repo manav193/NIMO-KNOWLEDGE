@@ -1,7 +1,7 @@
 {
-  "catalogVersion": "1.0.0",
-  "updatedAt": "2026-09-16T11:30:00Z",
-  "totalEntries": 4,
+  "catalogVersion": "1.1.0",
+  "updatedAt": "2026-09-17T03:35:00Z",
+  "totalEntries": 5,
   "entries": [
     {
       "id": "kno-20260916-agent-idempotency",
@@ -42,6 +42,16 @@
       "status": "approved",
       "path": "faq/approved/example-faq.json",
       "updatedAt": "2026-09-16T10:00:00Z"
+    },
+    {
+      "id": "kno-20260917-prompt-aii-deep-prompt-engineering",
+      "type": "knowledge_entry",
+      "project": "prompt-aii",
+      "topic": "deep-prompt-engineering",
+      "version": 1,
+      "status": "approved",
+      "path": "knowledge/projects/prompt-aii-deep-prompt-engineering.json",
+      "updatedAt": "2026-09-17T03:30:00Z"
     }
   ]
 }
