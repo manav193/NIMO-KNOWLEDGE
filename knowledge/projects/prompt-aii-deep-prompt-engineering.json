@@ -1,0 +1,43 @@
+{
+  "id": "kno-20260917-prompt-aii-deep-prompt-engineering",
+  "version": 1,
+  "timestamp": "2026-09-17T03:30:00Z",
+  "sourceProject": "prompt-aii",
+  "domain": "projects",
+  "status": "approved",
+  "title": "Prompt-Aii Deep Prompt Engineering",
+  "summary": "PromptAI should transform user intent into model-specific, high-level prompts rather than generic one-line instructions.",
+  "content": "PromptAI is the ecosystem's prompt-engineering laboratory. Its core behavior is intent preservation plus intelligent expansion. When a user provides incomplete input, the system should infer safe, useful assumptions instead of producing a generic prompt. Prompt architecture must change with the target model and task. For reasoning-oriented models such as ChatGPT, emphasize explicit objective, context, constraints, decomposition, reasoning requirements, quality criteria, output contract, and verification. For coding agents such as Codex and Claude, emphasize repository context, files to inspect, architecture constraints, implementation requirements, security, tests, validation, edge cases, and definition of done. For image models, emphasize subject, composition, camera, lighting, environment, materials, color, style, detail, and negative constraints. User-provided specifics must be preserved; inferred details must remain consistent with the user's intent. Reverse prompting should decompose an image into subject, composition, visual attributes, camera/lighting, environment, style, and model-specific prompt syntax. Promplets are reusable, visually demonstrated prompt patterns that can be adapted to new user intent. The quality objective is not prompt length alone: the generated prompt should be actionable, model-aware, unambiguous, constraint-rich, and designed to improve downstream output quality.",
+  "guidelines": [
+    "Preserve explicit user requirements before adding inferred detail.",
+    "Use model-specific prompt architecture instead of one universal template.",
+    "Prefer structured, high-level prompts for complex reasoning and coding tasks.",
+    "When context is missing, infer only reasonable assumptions that do not contradict the request.",
+    "For coding agents, include validation, testing, security, edge cases, and definition of done.",
+    "For image generation, include composition, lighting, camera, environment, style, and constraints when relevant.",
+    "Treat reverse prompting as visual decomposition followed by model-specific reconstruction guidance.",
+    "Do not equate longer prompts with better prompts; optimize for clarity, control, and task fitness.",
+    "Do not ingest raw private user conversations, secrets, credentials, or PII into active knowledge.",
+    "Only evaluated and approved knowledge may influence the active NIMO knowledge layer."
+  ],
+  "confidence": 0.9,
+  "evidence": [
+    "project-contract:prompt-aii",
+    "architecture:prompt-engineering-workbench",
+    "evaluation-required-before-active"
+  ],
+  "metadata": {
+    "sanitized": true,
+    "tags": [
+      "prompt-aii",
+      "prompt-engineering",
+      "model-routing",
+      "deep-prompts",
+      "reverse-prompt",
+      "coding-prompts",
+      "image-prompts",
+      "promplets"
+    ],
+    "approvedBy": "initial-foundation-review"
+  }
+}
