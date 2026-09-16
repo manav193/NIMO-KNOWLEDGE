@@ -1,0 +1,47 @@
+{
+  "catalogVersion": "1.0.0",
+  "updatedAt": "2026-09-16T11:30:00Z",
+  "totalEntries": 4,
+  "entries": [
+    {
+      "id": "kno-20260916-agent-idempotency",
+      "type": "knowledge_entry",
+      "project": "nimo-core",
+      "topic": "idempotency-principles",
+      "version": 1,
+      "status": "approved",
+      "path": "knowledge/general/example-knowledge-entry.json",
+      "updatedAt": "2026-09-16T10:15:00Z"
+    },
+    {
+      "id": "kno-20260916-socratic-study-scaffolding",
+      "type": "knowledge_entry",
+      "project": "nimo-web",
+      "topic": "pedagogical-scaffolding",
+      "version": 1,
+      "status": "approved",
+      "path": "knowledge/education/example-study-guidelines.json",
+      "updatedAt": "2026-09-16T10:30:00Z"
+    },
+    {
+      "id": "iss-20260916-powershell-quote-escaping",
+      "type": "issue_pattern",
+      "project": "nimo-assistant",
+      "topic": "windows-powershell-quoting",
+      "version": 1,
+      "status": "approved",
+      "path": "knowledge/automation/example-issue-pattern.json",
+      "updatedAt": "2026-09-16T10:45:00Z"
+    },
+    {
+      "id": "faq-20260916-latex-math-escaping",
+      "type": "faq",
+      "project": "nimo-web",
+      "topic": "katex-math-formatting",
+      "version": 1,
+      "status": "approved",
+      "path": "faq/approved/example-faq.json",
+      "updatedAt": "2026-09-16T10:00:00Z"
+    }
+  ]
+}

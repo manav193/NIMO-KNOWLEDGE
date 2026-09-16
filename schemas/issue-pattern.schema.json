@@ -1,0 +1,136 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://nimo.ai/schemas/issue-pattern.schema.json",
+  "title": "IssuePattern",
+  "description": "Schema for recurring error and failure patterns across OS environments and agent tools.",
+  "type": "object",
+  "required": [
+    "id",
+    "version",
+    "timestamp",
+    "sourceProject",
+    "category",
+    "status",
+    "name",
+    "symptom",
+    "rootCause",
+    "mitigation",
+    "severity",
+    "evidence",
+    "metadata"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^iss-[a-z0-9-]+$",
+      "description": "Unique identifier (e.g., iss-20260916-powershell-quote-escaping)."
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "sourceProject": {
+      "type": "string",
+      "enum": [
+        "nimo-core",
+        "nimo-web",
+        "prompt-aii",
+        "nimo-assistant",
+        "future-service"
+      ]
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "error_pattern",
+        "tool_failure",
+        "hallucination_pattern",
+        "edge_case",
+        "timeout_pattern",
+        "permission_denied"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "raw",
+        "sanitized",
+        "processed",
+        "evaluated",
+        "approved",
+        "active",
+        "archived",
+        "rejected"
+      ]
+    },
+    "name": {
+      "type": "string"
+    },
+    "symptom": {
+      "type": "string",
+      "description": "Observable error behavior or sanitized stderr message."
+    },
+    "rootCause": {
+      "type": "string",
+      "description": "Technical root cause explanation."
+    },
+    "mitigation": {
+      "type": "string",
+      "description": "Concrete workaround, fix, or operational recipe."
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ]
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "required": [
+        "sanitized",
+        "tags"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "sanitized": {
+          "type": "boolean",
+          "enum": [true]
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "osPlatform": {
+          "type": "string",
+          "enum": [
+            "windows",
+            "macos",
+            "linux",
+            "cross-platform"
+          ]
+        }
+      }
+    }
+  }
+}

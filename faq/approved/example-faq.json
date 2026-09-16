@@ -1,0 +1,26 @@
+{
+  "id": "faq-20260916-latex-math-escaping",
+  "version": 1,
+  "timestamp": "2026-09-16T10:00:00Z",
+  "sourceProject": "nimo-web",
+  "category": "education",
+  "status": "approved",
+  "question": "How should mathematical formulas and currency symbols be formatted in student explanations?",
+  "answer": "Mathematical formulas should be enclosed in KaTeX math delimiters ($...$ for inline or $$...$$ for block). Any standalone currency dollar sign must be escaped as \\$ or wrapped in code backticks to prevent accidental parsing as math blocks.",
+  "confidence": 0.98,
+  "evidence": [
+    "ref:docs/education/rendering-rules.md#math-formatting",
+    "bench:eval-katex-rendering-suite-v1"
+  ],
+  "metadata": {
+    "sanitized": true,
+    "tags": [
+      "latex",
+      "katex",
+      "math",
+      "formatting",
+      "education"
+    ],
+    "verifiedBy": "nimo-curation-board"
+  }
+}

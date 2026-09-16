@@ -1,0 +1,25 @@
+{
+  "id": "fbk-20260916-flashcard-spaced-rep",
+  "version": 1,
+  "timestamp": "2026-09-16T10:50:00Z",
+  "sourceProject": "nimo-web",
+  "category": "user_interface",
+  "status": "processed",
+  "sentiment": "positive",
+  "rating": 5,
+  "summary": "Study session summary card greatly improved retention",
+  "content": "The new recap summary after completing a 20-card deck made reviewing key formulas significantly faster. Would love to see an automated review reminder next morning.",
+  "evidence": [
+    "session:anon-session-cohort-b-4029"
+  ],
+  "metadata": {
+    "sanitized": true,
+    "tags": [
+      "flashcards",
+      "spaced-repetition",
+      "ux",
+      "study-tools"
+    ],
+    "clientCohort": "student-pilot-2026"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "evt-20260916-agent-timeout-recovery",
+  "version": 1,
+  "timestamp": "2026-09-16T11:10:00Z",
+  "sourceProject": "nimo-core",
+  "category": "anomaly_detection",
+  "status": "evaluated",
+  "confidence": 0.88,
+  "observation": "When an external CLI tool hangs without emitting stdout for more than 15 seconds, waiting synchronously freezes the agent event loop and starves dependent tasks.",
+  "proposedAction": "Cap synchronous waiting at 10000ms and gracefully transfer long-running processes to asynchronous background monitoring.",
+  "evidence": [
+    "run:anon-trace-timeout-fail-774",
+    "bench:cli-latency-benchmark-09"
+  ],
+  "metadata": {
+    "sanitized": true,
+    "tags": [
+      "timeout",
+      "process-management",
+      "async",
+      "resilience"
+    ],
+    "environment": "staging"
+  }
+}

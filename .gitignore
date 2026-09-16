@@ -1,0 +1,47 @@
+# Operating System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor & IDE Directories
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary & Cache Files
+*.tmp
+*.log
+*.bak
+*.cache
+__pycache__/
+*.pyc
+
+# Environment & Secrets (Explicit Safeguards)
+.env
+.env.*
+*.env
+*.pem
+*.key
+*.crt
+*.pfx
+*.token
+secrets/
+private/
+credentials/
+auth/
+token.json
+client_secrets*.json
+
+# Bulk / Raw Data (Google Drive Staging)
+raw_staging/
+drive_exports/
+*.dump
+*.tar
+*.gz
+*.zip
+*.parquet
+*.sqlite
+*.sqlite3
+*.db

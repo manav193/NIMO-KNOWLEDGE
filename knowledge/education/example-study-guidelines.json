@@ -1,0 +1,32 @@
+{
+  "id": "kno-20260916-socratic-study-scaffolding",
+  "version": 1,
+  "timestamp": "2026-09-16T10:30:00Z",
+  "sourceProject": "nimo-web",
+  "domain": "education",
+  "status": "approved",
+  "title": "Socratic Questioning and Scaffolding Heuristics",
+  "summary": "Proven pedagogical strategy for guiding students through difficult conceptual challenges without giving away answers directly.",
+  "content": "When a learner encounters conceptual difficulty, the agent should first isolate the specific misunderstanding, offer a relatable metaphor or simplified sub-problem, and ask a leading question that prompts the student to synthesize the solution independently.",
+  "guidelines": [
+    "Never dump the complete solution immediately upon first student hesitation.",
+    "Break multi-step math or science problems into atomic sub-questions.",
+    "Acknowledge student effort and validate correct partial reasoning."
+  ],
+  "confidence": 0.92,
+  "evidence": [
+    "study:cognitive-load-pedagogy-2025",
+    "bench:nimo-tutor-bench-v2"
+  ],
+  "metadata": {
+    "sanitized": true,
+    "tags": [
+      "pedagogy",
+      "socratic-method",
+      "education",
+      "tutoring",
+      "nimo-web"
+    ],
+    "approvedBy": "pedagogy-review-panel"
+  }
+}

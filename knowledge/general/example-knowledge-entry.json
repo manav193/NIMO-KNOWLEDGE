@@ -1,0 +1,31 @@
+{
+  "id": "kno-20260916-agent-idempotency",
+  "version": 1,
+  "timestamp": "2026-09-16T10:15:00Z",
+  "sourceProject": "nimo-core",
+  "domain": "general",
+  "status": "approved",
+  "title": "Idempotent Execution Principles for Ecosystem Agents",
+  "summary": "Standard operating guidelines to ensure agent tasks and tool calls can be repeated or resumed safely without side-effect corruption.",
+  "content": "All tool actions executed by autonomous agents in the NIMO ecosystem must be idempotent wherever possible. File modifications should check preconditions, command runs should avoid blind appending, and state transitions must be verified prior to secondary execution.",
+  "guidelines": [
+    "Always verify file existence and state before issuing mutating commands.",
+    "Avoid blind appending to shell profiles or environment configuration files.",
+    "Provide clear rollback or mitigation recipes in tool execution outputs."
+  ],
+  "confidence": 0.95,
+  "evidence": [
+    "eval:eval-approved-001",
+    "bench:agent-idempotency-suite-2026"
+  ],
+  "metadata": {
+    "sanitized": true,
+    "tags": [
+      "idempotency",
+      "architecture",
+      "safety",
+      "agent-guidelines"
+    ],
+    "approvedBy": "nimo-core-architecture-wg"
+  }
+}

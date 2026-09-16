@@ -1,0 +1,29 @@
+{
+  "id": "iss-20260916-powershell-quote-escaping",
+  "version": 1,
+  "timestamp": "2026-09-16T10:45:00Z",
+  "sourceProject": "nimo-assistant",
+  "category": "tool_failure",
+  "status": "approved",
+  "name": "PowerShell Command Escaping with Mixed Quotes",
+  "symptom": "Commands containing nested double quotes or backticks fail with Unexpected token or syntax error when invoked via automation runner.",
+  "rootCause": "PowerShell parses backticks as escape sequences and evaluates string interpolation within double quotes, conflicting with nested CLI argument passing.",
+  "mitigation": "Use PowerShell literal here-strings (@' ... '@) or pass arguments via standalone script files instead of complex inline string expressions.",
+  "severity": "medium",
+  "confidence": 0.99,
+  "evidence": [
+    "run:trace-ps-escape-eval-9941",
+    "docs:powershell-quoting-rules"
+  ],
+  "metadata": {
+    "sanitized": true,
+    "tags": [
+      "powershell",
+      "windows",
+      "tooling",
+      "escaping",
+      "cli"
+    ],
+    "osPlatform": "windows"
+  }
+}

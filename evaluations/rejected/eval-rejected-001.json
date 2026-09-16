@@ -1,0 +1,18 @@
+{
+  "evaluationId": "eval-rejected-001",
+  "proposalId": "sug-20260915-auto-shell-sudo",
+  "sourceProject": "future-service",
+  "decision": "rejected",
+  "evaluatedAt": "2026-09-16T11:25:00Z",
+  "evaluator": "security-audit-subsystem",
+  "metrics": {
+    "securityRiskScore": 0.98,
+    "confidence": 0.12
+  },
+  "rationale": "Proposal suggested automatically elevating unverified shell commands to superuser privileges upon initial failure. This directly violates the NIMO privilege minimization standard and creates severe privilege escalation vulnerabilities.",
+  "status": "rejected",
+  "metadata": {
+    "sanitized": true,
+    "tags": ["security", "privilege-escalation", "rejected"]
+  }
+}

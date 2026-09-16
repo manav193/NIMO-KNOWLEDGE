@@ -1,0 +1,25 @@
+{
+  "id": "sug-20260916-prompt-step-decomposition",
+  "version": 1,
+  "timestamp": "2026-09-16T11:00:00Z",
+  "sourceProject": "prompt-aii",
+  "category": "reasoning_flow",
+  "status": "processed",
+  "title": "Decompose Complex Coding Problems into Structured Micro-Steps",
+  "description": "Encourage agents to generate an explicit mini-plan before initiating multi-file codebase edits, reducing unforced rollbacks by 40%.",
+  "rationale": "Empirical evaluations in Prompt-Aii demonstrated that agents executing immediate code changes without step planning often miss auxiliary test and interface adjustments.",
+  "impact": "high",
+  "confidence": 0.94,
+  "evidence": [
+    "eval:prompt-aii-ab-test-batch-12"
+  ],
+  "metadata": {
+    "sanitized": true,
+    "tags": [
+      "planning",
+      "agent-reasoning",
+      "prompt-aii",
+      "best-practices"
+    ]
+  }
+}

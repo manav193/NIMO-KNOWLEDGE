@@ -1,0 +1,131 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://nimo.ai/schemas/feedback.schema.json",
+  "title": "Feedback",
+  "description": "Schema for user feedback collected from NIMO ecosystem applications.",
+  "type": "object",
+  "required": [
+    "id",
+    "version",
+    "timestamp",
+    "sourceProject",
+    "category",
+    "status",
+    "sentiment",
+    "summary",
+    "content",
+    "evidence",
+    "metadata"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^fbk-[a-z0-9-]+$",
+      "description": "Unique identifier for the feedback entry (e.g., fbk-20260916-ux-summary)."
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Record version."
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp."
+    },
+    "sourceProject": {
+      "type": "string",
+      "enum": [
+        "nimo-core",
+        "nimo-web",
+        "prompt-aii",
+        "nimo-assistant",
+        "future-service"
+      ],
+      "description": "Project source."
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "user_interface",
+        "accuracy",
+        "latency",
+        "clarity",
+        "onboarding",
+        "general"
+      ],
+      "description": "Functional feedback category."
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "raw",
+        "sanitized",
+        "processed",
+        "evaluated",
+        "approved",
+        "active",
+        "archived",
+        "rejected"
+      ],
+      "description": "Lifecycle state."
+    },
+    "sentiment": {
+      "type": "string",
+      "enum": [
+        "positive",
+        "neutral",
+        "negative",
+        "mixed"
+      ],
+      "description": "Classified user sentiment."
+    },
+    "rating": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5,
+      "description": "Optional numeric rating (1 to 5 scale)."
+    },
+    "summary": {
+      "type": "string",
+      "description": "Concise summary of the feedback."
+    },
+    "content": {
+      "type": "string",
+      "description": "Sanitized text of the feedback stripped of all identifiers."
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Anonymized session reference or survey batch ID."
+    },
+    "metadata": {
+      "type": "object",
+      "required": [
+        "sanitized",
+        "tags"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "sanitized": {
+          "type": "boolean",
+          "enum": [true],
+          "description": "Privacy certification."
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "clientCohort": {
+          "type": "string",
+          "description": "Aggregated user group (e.g., student-beta, educator-pilot)."
+        }
+      }
+    }
+  }
+}

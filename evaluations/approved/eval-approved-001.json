@@ -1,0 +1,20 @@
+{
+  "evaluationId": "eval-approved-001",
+  "proposalId": "evt-20260916-agent-timeout-recovery",
+  "sourceProject": "nimo-core",
+  "decision": "approved",
+  "evaluatedAt": "2026-09-16T11:20:00Z",
+  "evaluator": "nimo-eval-engine-v1",
+  "metrics": {
+    "benchmarkScore": 0.94,
+    "falsePositiveRate": 0.01,
+    "latencyImprovementPercent": 32.5
+  },
+  "rationale": "Empirical testing on 500 simulated hang conditions verified that capping sync wait and transferring to background tasks eliminated event loop deadlocks without impacting task completion rates.",
+  "status": "approved",
+  "targetArtifact": "knowledge/automation/kno-20260916-agent-idempotency.json",
+  "metadata": {
+    "sanitized": true,
+    "tags": ["async", "eval", "approved"]
+  }
+}

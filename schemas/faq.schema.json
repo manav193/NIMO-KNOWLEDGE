@@ -1,0 +1,110 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://nimo.ai/schemas/faq.schema.json",
+  "title": "FAQ",
+  "description": "Schema for approved or processed frequently asked questions.",
+  "type": "object",
+  "required": [
+    "id",
+    "version",
+    "timestamp",
+    "sourceProject",
+    "category",
+    "status",
+    "question",
+    "answer",
+    "evidence",
+    "metadata"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^faq-[a-z0-9-]+$",
+      "description": "Unique identifier (e.g., faq-20260916-workspace-sync)."
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "sourceProject": {
+      "type": "string",
+      "enum": [
+        "nimo-core",
+        "nimo-web",
+        "prompt-aii",
+        "nimo-assistant",
+        "future-service"
+      ]
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "general",
+        "education",
+        "technical",
+        "account_access",
+        "ai_behavior",
+        "troubleshooting"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "raw",
+        "sanitized",
+        "processed",
+        "evaluated",
+        "approved",
+        "active",
+        "archived",
+        "rejected"
+      ]
+    },
+    "question": {
+      "type": "string"
+    },
+    "answer": {
+      "type": "string"
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Citations or authoritative documentation links."
+    },
+    "metadata": {
+      "type": "object",
+      "required": [
+        "sanitized",
+        "tags"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "sanitized": {
+          "type": "boolean",
+          "enum": [true]
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "verifiedBy": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

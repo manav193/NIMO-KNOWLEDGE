@@ -1,0 +1,120 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://nimo.ai/schemas/learning-event.schema.json",
+  "title": "LearningEvent",
+  "description": "Schema for learning events captured across the NIMO ecosystem before or after evaluation.",
+  "type": "object",
+  "required": [
+    "id",
+    "version",
+    "timestamp",
+    "sourceProject",
+    "category",
+    "status",
+    "observation",
+    "evidence",
+    "metadata"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^evt-[a-z0-9-]+$",
+      "description": "Unique identifier for the learning event (e.g., evt-20260916-agent-retry-01)."
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Schema or event version number."
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when the event was recorded."
+    },
+    "sourceProject": {
+      "type": "string",
+      "enum": [
+        "nimo-core",
+        "nimo-web",
+        "prompt-aii",
+        "nimo-assistant",
+        "future-service"
+      ],
+      "description": "Originating project or component in the NIMO ecosystem."
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "task_execution",
+        "strategy_adaptation",
+        "tool_usage",
+        "prompt_performance",
+        "knowledge_gap",
+        "anomaly_detection"
+      ],
+      "description": "Subcategory of the learning event."
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "raw",
+        "sanitized",
+        "processed",
+        "evaluated",
+        "approved",
+        "active",
+        "archived",
+        "rejected"
+      ],
+      "description": "Lifecycle state of the record."
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "description": "Statistical or heuristic confidence score (0.0 to 1.0)."
+    },
+    "observation": {
+      "type": "string",
+      "description": "Synthesized, privacy-safe description of what was observed or learned."
+    },
+    "proposedAction": {
+      "type": "string",
+      "description": "Proposed adaptation, heuristic rule, or knowledge update."
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "References to benchmark IDs, evaluation hashes, or scrubbed trace identifiers."
+    },
+    "metadata": {
+      "type": "object",
+      "required": [
+        "sanitized",
+        "tags"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "sanitized": {
+          "type": "boolean",
+          "enum": [true],
+          "description": "Flag certifying data contains no secrets or PII."
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Categorization and search tags."
+        },
+        "environment": {
+          "type": "string",
+          "description": "Execution environment (e.g., local, dev, staging, production)."
+        }
+      }
+    }
+  }
+}
