@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://nimo.ai/schemas/prompt-aii-improvement-proposal.schema.json",
+  "title": "PromptAiiImprovementProposal",
+  "description": "Governed proposal emitted from Prompt-Aii observations. Proposals are review artifacts and are never active knowledge by default.",
+  "type": "object",
+  "required": ["proposalId", "sourceProject", "category", "target", "evidence", "confidence", "risk", "status", "createdAt"],
+  "additionalProperties": false,
+  "properties": {
+    "proposalId": { "type": "string", "pattern": "^prop-prompt-aii-[a-zA-Z0-9-]+$" },
+    "sourceProject": { "const": "prompt-aii" },
+    "category": { "type": "string", "enum": ["prompt-improvement", "knowledge-update", "model-routing-improvement", "tool-strategy-improvement"] },
+    "target": { "type": "string", "minLength": 1, "maxLength": 256 },
+    "evidence": { "type": "array", "items": { "type": "object", "additionalProperties": true } },
+    "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+    "expectedImprovement": { "type": "string", "maxLength": 2000 },
+    "risk": { "type": "string", "enum": ["LOW", "MEDIUM", "HIGH"] },
+    "status": { "type": "string", "enum": ["PROPOSED", "TESTING", "APPROVED", "REJECTED"] },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sanitized": { "const": true },
+        "requiresHumanReview": { "const": true },
+        "knowledgeEntryPath": { "type": "string" }
+      }
+    }
+  }
+}
