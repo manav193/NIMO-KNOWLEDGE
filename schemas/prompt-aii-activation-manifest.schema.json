@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://nimo.ai/schemas/prompt-aii-activation-manifest.schema.json",
+  "title": "PromptAiiActivationManifest",
+  "description": "Governed handoff for an already-approved Prompt-Aii knowledge entry. This manifest authorizes consumption metadata, not autonomous approval.",
+  "type": "object",
+  "required": ["knowledgeEntryId", "sourceProject", "status", "version", "knowledgePath", "approvedBy", "sanitized"],
+  "additionalProperties": false,
+  "properties": {
+    "knowledgeEntryId": { "type": "string", "pattern": "^kno-[a-z0-9-]+$" },
+    "sourceProject": { "const": "prompt-aii" },
+    "status": { "const": "approved" },
+    "version": { "type": "integer", "minimum": 1 },
+    "knowledgePath": { "type": "string", "pattern": "^knowledge/projects/prompt-aii-[a-z0-9-]+\\.json$" },
+    "approvedBy": { "type": "string", "minLength": 1, "maxLength": 256 },
+    "sanitized": { "const": true },
+    "catalogVersion": { "type": "string", "minLength": 1, "maxLength": 64 }
+  }
+}
