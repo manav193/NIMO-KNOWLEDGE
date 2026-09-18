@@ -124,4 +124,6 @@ Interaction
 
 - **Declarative Immutability**: Knowledge entries are committed through Git pull requests requiring review.
 - **No Self-Activation**: Agent processes cannot write directly to `knowledge/` or `approved/` paths during live inference.
+- **Runtime Approval Boundary**: NIMO-CORE enforces that only entries marked with `status: "approved"` or `status: "active"` can be loaded into runtime memory. Proposed, draft, evaluated, or rejected items are strictly ignored.
 - **Deterministic Replay**: Every entry contains a Git hash and schema version, enabling point-in-time reconstruction of agent behavior.
+- **Planned Storage Distinction**: Google Drive serves as a future bulk object and historical archive layer (not yet implemented in production); it never feeds directly into active runtime inference without passing through the NIMO-KNOWLEDGE evaluation gate.

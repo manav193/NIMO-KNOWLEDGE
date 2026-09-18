@@ -1,6 +1,6 @@
 {
-  "catalogVersion": "1.1.0",
-  "updatedAt": "2026-09-17T03:35:00Z",
+  "catalogVersion": "1.2.0",
+  "updatedAt": "2026-09-18T14:00:00Z",
   "totalEntries": 5,
   "entries": [
     {
@@ -11,7 +11,14 @@
       "version": 1,
       "status": "approved",
       "path": "knowledge/general/example-knowledge-entry.json",
-      "updatedAt": "2026-09-16T10:15:00Z"
+      "updatedAt": "2026-09-16T10:15:00Z",
+      "provenance": {
+        "approvedBy": "nimo-core-architecture-wg",
+        "evidence": [
+          "eval:eval-approved-001",
+          "bench:agent-idempotency-suite-2026"
+        ]
+      }
     },
     {
       "id": "kno-20260916-socratic-study-scaffolding",
@@ -21,7 +28,13 @@
       "version": 1,
       "status": "approved",
       "path": "knowledge/education/example-study-guidelines.json",
-      "updatedAt": "2026-09-16T10:30:00Z"
+      "updatedAt": "2026-09-16T10:30:00Z",
+      "provenance": {
+        "approvedBy": "education-review-panel",
+        "evidence": [
+          "eval:eval-study-scaffold-002"
+        ]
+      }
     },
     {
       "id": "iss-20260916-powershell-quote-escaping",
@@ -31,7 +44,13 @@
       "version": 1,
       "status": "approved",
       "path": "knowledge/automation/example-issue-pattern.json",
-      "updatedAt": "2026-09-16T10:45:00Z"
+      "updatedAt": "2026-09-16T10:45:00Z",
+      "provenance": {
+        "approvedBy": "automation-governance-wg",
+        "evidence": [
+          "eval:eval-windows-ps-quote-003"
+        ]
+      }
     },
     {
       "id": "faq-20260916-latex-math-escaping",
@@ -41,7 +60,13 @@
       "version": 1,
       "status": "approved",
       "path": "faq/approved/example-faq.json",
-      "updatedAt": "2026-09-16T10:00:00Z"
+      "updatedAt": "2026-09-16T10:00:00Z",
+      "provenance": {
+        "approvedBy": "web-frontend-wg",
+        "evidence": [
+          "eval:eval-katex-faq-001"
+        ]
+      }
     },
     {
       "id": "kno-20260917-prompt-aii-deep-prompt-engineering",
@@ -51,7 +76,14 @@
       "version": 1,
       "status": "approved",
       "path": "knowledge/projects/prompt-aii-deep-prompt-engineering.json",
-      "updatedAt": "2026-09-17T03:30:00Z"
+      "updatedAt": "2026-09-17T03:30:00Z",
+      "provenance": {
+        "approvedBy": "initial-foundation-review",
+        "evidence": [
+          "project-contract:prompt-aii",
+          "architecture:prompt-engineering-workbench"
+        ]
+      }
     }
   ]
 }

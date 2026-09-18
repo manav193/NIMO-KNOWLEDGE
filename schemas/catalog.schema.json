@@ -1,0 +1,128 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://nimo.ai/schemas/catalog.schema.json",
+  "title": "KnowledgeCatalog",
+  "description": "Schema for the unified NIMO-KNOWLEDGE master catalog index.",
+  "type": "object",
+  "required": [
+    "catalogVersion",
+    "updatedAt",
+    "totalEntries",
+    "entries"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "catalogVersion": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
+      "description": "Semver string for catalog schema/structure version."
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp of the catalog's last update."
+    },
+    "totalEntries": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Count of listed knowledge entries."
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "type",
+          "project",
+          "topic",
+          "version",
+          "status",
+          "path",
+          "updatedAt"
+        ],
+        "additionalProperties": true,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^(kno|iss|faq|sug|feat)-[a-z0-9-]+$",
+            "description": "Unique entry identifier with domain prefix."
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "knowledge_entry",
+              "issue_pattern",
+              "faq",
+              "suggestion",
+              "feature_request"
+            ],
+            "description": "Knowledge type classification."
+          },
+          "project": {
+            "type": "string",
+            "enum": [
+              "nimo-core",
+              "nimo-web",
+              "prompt-aii",
+              "nimo-assistant",
+              "future-service"
+            ],
+            "description": "Source or target project within the NIMO ecosystem."
+          },
+          "topic": {
+            "type": "string",
+            "description": "Kebab-case canonical topic name."
+          },
+          "version": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "Monotonically increasing version number."
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "raw",
+              "sanitized",
+              "processed",
+              "draft",
+              "proposed",
+              "evaluated",
+              "approved",
+              "active",
+              "archived",
+              "rejected"
+            ],
+            "description": "Lifecycle governance status."
+          },
+          "path": {
+            "type": "string",
+            "description": "Relative repository path to the knowledge item."
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "ISO 8601 timestamp of entry update."
+          },
+          "provenance": {
+            "type": "object",
+            "description": "Reviewer provenance and backlinked evidence.",
+            "properties": {
+              "approvedBy": {
+                "type": "string",
+                "description": "Reviewer, workgroup, or evaluation hash that approved the entry."
+              },
+              "evidence": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "Evidence IDs, benchmarks, or citations."
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
