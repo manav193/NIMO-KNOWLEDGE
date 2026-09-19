@@ -1,0 +1,20 @@
+{
+  "$schema":"http://json-schema.org/draft-07/schema#",
+  "$id":"https://nimo.ai/schemas/learning-proposal.schema.json",
+  "title":"NIMO Learning Proposal",
+  "type":"object",
+  "additionalProperties":false,
+  "required":["id","version","status","source","consent","sanitization","proposal","createdAt"],
+  "properties":{
+    "id":{"type":"string","pattern":"^learn-[a-z0-9-]+$"},
+    "version":{"type":"integer","minimum":1},
+    "status":{"type":"string","enum":["proposed","sanitized","evaluated","approved","rejected","active","archived"]},
+    "source":{"type":"string","enum":["nimo-core","nimo-agent","nimo-web","prompt-aii","nimo-assistant","future-service"]},
+    "consent":{"type":"object","additionalProperties":false,"required":["required","consentId"],"properties":{"required":{"const":true},"consentId":{"type":"string","pattern":"^cons-[a-z0-9-]+$"}}},
+    "sanitization":{"type":"object","additionalProperties":false,"required":["completed","piiRemoved","secretsRemoved","minimized"],"properties":{"completed":{"const":true},"piiRemoved":{"const":true},"secretsRemoved":{"const":true},"minimized":{"const":true}}},
+    "proposal":{"type":"string","minLength":1},
+    "evidence":{"type":"array","items":{"type":"string"}},
+    "createdAt":{"type":"string","format":"date-time"},
+    "approvedBy":{"type":["string","null"]}
+  }
+}
