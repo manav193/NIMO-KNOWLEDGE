@@ -1,0 +1,21 @@
+{
+  "$schema":"http://json-schema.org/draft-07/schema#",
+  "$id":"https://nimo.ai/schemas/consent-record.schema.json",
+  "title":"NIMO Consent Record",
+  "type":"object",
+  "additionalProperties":false,
+  "required":["id","version","userScope","purpose","decision","dataCategories","timestamp"],
+  "properties":{
+    "id":{"type":"string","pattern":"^cons-[a-z0-9-]+$"},
+    "version":{"type":"integer","minimum":1},
+    "userScope":{"type":"string","enum":["user","account","session"]},
+    "purpose":{"type":"string","enum":["personal_memory","learning_contribution","model_improvement","analytics"]},
+    "decision":{"type":"string","enum":["granted","denied","revoked"]},
+    "dataCategories":{"type":"array","items":{"type":"string","enum":["conversation","preferences","task_history","files_metadata","screen_context","voice","feedback","execution_outcomes"]},"minItems":1},
+    "retention":{"type":"string","enum":["session","30_days","90_days","1_year","until_revoked","user_defined"]},
+    "timestamp":{"type":"string","format":"date-time"},
+    "policyVersion":{"type":"string"},
+    "reviewRequired":{"type":"boolean"},
+    "metadata":{"type":"object","additionalProperties":false}
+  }
+}
